@@ -10,10 +10,10 @@ class AirplaneModeChangeReceiver : BroadcastReceiver() {
 //        val airplaneModeEnable = intent?.getBooleanExtra("state", false) ?: return
         val airplaneModeEnable = intent?.getBooleanExtra("state", false) ?: return
         if (airplaneModeEnable) {
-            Log.d("TAG", "onReceive: airplaneMode: $airplaneModeEnable")
+            Log.d("airplane_mode", "airplaneMode enable")
 
         } else {
-            Log.d("TAG", "onReceive: airplaneMode: $airplaneModeEnable")
+            Log.d("airplane_mode", "airplaneMode disable")
         }
     }
 }

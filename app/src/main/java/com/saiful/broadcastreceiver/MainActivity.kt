@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.saiful.broadcastreceiver.broadcast.AirplaneModeChangeReceiver
@@ -23,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         airplaneModeChangeReceiver = AirplaneModeChangeReceiver()
 
         IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
-            Log.d("TAG", "onCreate: called main activity")
             registerReceiver(airplaneModeChangeReceiver, it)
         }
 
