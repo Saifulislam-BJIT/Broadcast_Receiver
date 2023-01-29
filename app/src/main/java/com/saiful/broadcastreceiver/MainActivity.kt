@@ -47,5 +47,6 @@ class MainActivity : AppCompatActivity() {
         unregisterReceiver(airplaneModeChangeReceiver)
         unregisterReceiver(batteryStatus)
         unregisterReceiver(internet)
+        unregisterReceiver(smsBroadcastReceiver)
     }
 }
