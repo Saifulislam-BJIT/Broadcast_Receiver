@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.saiful.broadcastreceiver.broadcast.AirplaneModeChangeReceiver
 import com.saiful.broadcastreceiver.broadcast.BatteryStatus
 import com.saiful.broadcastreceiver.broadcast.Internet
+import com.saiful.broadcastreceiver.broadcast.SMSBroadcastReceiver
 
 class MainActivity : AppCompatActivity() {
     lateinit var airplaneModeChangeReceiver: AirplaneModeChangeReceiver
     lateinit var batteryStatus: BatteryStatus
     lateinit var internet: Internet
+    lateinit var smsBroadcastReceiver: SMSBroadcastReceiver
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         val filter = IntentFilter()
         filter.addAction("android.net.conn.CONNECTIVITY_CHANGE")
         registerReceiver(internet, filter)
+
+        smsBroadcastReceiver = SMSBroadcastReceiver()
+        filter.addAction("android.permission.RECEIVE_SMS")
+        registerReceiver(smsBroadcastReceiver, filter)
     }
 
     override fun onStop() {
